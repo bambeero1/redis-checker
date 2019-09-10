@@ -1,9 +1,10 @@
 import random
 import subprocess
+import sys
 
 def main():
-
-        fileHandler = open ("redis", "r")
+        hosts = sys.argv[1]
+        fileHandler = open (hosts, "r")
         listOfLines = fileHandler.readlines()
         fileHandler.close()
         for line in listOfLines:
@@ -14,7 +15,7 @@ def main():
                 print('========> running against port: ' + str(r))
                 print('========> command : ' + cmd)
                 try:
-                        subprocess.run(cmd, timeout=5, shell=True)
+                        subprocess.run(cmd, timeout=8, shell=True)
                 except subprocess.TimeoutExpired:
                         print('process ran too long')
 
