@@ -3,7 +3,6 @@ import subprocess
 
 def main():
 
-        print("****Read all lines in file using readlines() *****")
         fileHandler = open ("redis", "r")
         listOfLines = fileHandler.readlines()
         fileHandler.close()
